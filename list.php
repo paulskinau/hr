@@ -15,17 +15,15 @@
 
   <div data-role="main" class="ui-content">
 
-     <ul class="ui-listview ui-listview-inset ui-corner-all ui-shadow" data-role="listview" data-inset="true">
+     <ul class="ui-listview ui-listview-inset ui-corner-all ui-shadow" data-role="listview" data-inset="true" data-split-theme="a">
 	<?php
 	  $firstlastchild = 'ui-first-child';
-	  $query = 'SELECT ShortDescription, Description FROM contenthierarchy';
-	  $result = mysql_query($query) or die('Query failed: ' . mysql_error());	
-	  	
-	  while ($line = mysql_fetch_array($result, MYSQL_NUM)) {
+	  $query = 'SELECT ContentID, ShortDescription, Description FROM contenthierarchy';
+	  $result = $mysqli->query($query); 	
+	  while ($line = $result->fetch_array()) {
 	  ?>
 		<li class="ui-li-static ui-body-inherit ui-first-child">
-	  <?php printf("<h3> %s </h3><p> %s </p>", $line[0], $line[1]); ?>         
-                 </li>		
+		<?php printf("<a href='item.php?id=%s'><h3> %s </h3><p> %s </p></a>", $line[0], $line[1], $line[2]); ?></li>		
 	<?php 
 		 }
 	  
