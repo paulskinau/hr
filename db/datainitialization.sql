@@ -5,4 +5,5 @@ INSERT INTO contenttype
  ('Hierarchy' ,'contenthierarchy'),
  ('TV Show', 'tvshow'),
  ('Actor' ,'actor'),
- ('Country of Origin', 'country');
+ ('Country of Origin', 'country'),
+ ('Reference', 'Reference to another node');

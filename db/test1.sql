@@ -5,13 +5,14 @@ ALTER TABLE contenthierarchy AUTO_INCREMENT = 1;
 UPDATE tree set TreeID = null;
 TRUNCATE tree;
 
-
 INSERT INTO contenthierarchy
   (ShortDescription, Description)
   VALUES
   ('Science Fiction Shows','A content hierarchy of science fiction shows'),
   ('Documentary Shows', 'A content hierarchy of documentary shows');
 
+
+truncate tvshow;
 INSERT into tvshow
  (ShortDescription, Description)
   VALUES
@@ -21,12 +22,12 @@ INSERT into tvshow
   ('Mythbusters', 'A weekly documentary in which two Hollywood special effects experts attempt to debunk urban legends by directly testing them.');
 
 INSERT INTO tree
- (TagName, TreeID, ContentType, ContentID, leftNode, rightNode)
+ (TagName, TreeID, ParentID, ContentType, ContentID)
  VALUES
- ('Scifi', 1, 1, 1,1,6),
- ('Doco', 2,1,2, 1,6),
- ('GOT', 1, 2, 1 ,2,3 ),
- ('PE', 2,2,3,2,3),
- ('LME', 1,2,3, 4,5),
- ('MYT', 2,2,4,4,5);
+ ('Scifi', 1, NULL, 1, 1),
+ ('Doco', 2, NULL, 1,2),
+ ('GOT', 1, 1, 2, 1 ),
+ ('PE', 2, 2, 2,2),
+ ('LME', 1,1, 2,3),
+ ('MYT', 2, 2, 2,4);
  

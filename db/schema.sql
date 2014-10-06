@@ -15,13 +15,14 @@ create table tree
 ( ID int NOT NULL AUTO_INCREMENT, 
   TagName varchar(20),
   TreeID int,
-  leftNode int,
-  rightNode int,
+  ParentID int,
+  #leftNode int,
+  #rightNode int,
   ContentType int,
   ContentID int,
   PRIMARY KEY(ID),
   FOREIGN KEY (TreeID) REFERENCES tree(ID),
-  FOREIGN KEY (ContentID) REFERENCES contenttype(ID)
+  FOREIGN KEY (ContentType) REFERENCES contenttype(ID)
 );
 
 create table contenthierarchy
@@ -38,6 +39,7 @@ create table tvshow
 
 create table actor
 ( ContentID int NOT NULL AUTO_INCREMENT Primary Key,
+  ShortDescription varchar(40),
   Fullname varchar(40),
   Description varchar(100)
 );

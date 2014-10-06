@@ -16,27 +16,26 @@
   <div data-role="main" class="ui-content">
 
    <?php
-   
 
-   if ($stmt = $mysqli->prepare("SELECT ShortDescription from contenthierarchy where ContentID=?"))
-   {
-	$stmt->bind_param("s", $_GET["id"]);
-	$stmt->execute();
-	$stmt->bind_result($desc);
-	$stmt->fetch();
-	printf("<h2>%s</h2>", $desc);
-        $stmt->close();
-   }	
+    $id = 14;
+    if (array_key_exists("id", $_GET))
+	{ $id = $_GET["id"]; }
 
-    $tree = new Tree(new Node($_GET["id"]));
+    $tree = new Tree(new HierarchyNode($id));
+
+    printf("<h2>%s</h2>", $tree->rootNode->value);
 
 
+    printf($tree->rootNode->toHTMLString());
 
-    loadTree($_GET["id"]);
+    printf("<p>As Short String:<br/>%s</p>", $tree->rootNode->toShortString());
+
+    #loadTree(1);
 
     $mysqli->close();
    ?>     
 
+  <a href="list.php" data-transition="slide">Back</a>
     
   </div>
 

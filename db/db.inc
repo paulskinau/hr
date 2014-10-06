@@ -22,6 +22,7 @@ function newConn()
 
 function getContentTypeTableName($contenttype)
 {
+  $tn = NULL;
    switch ($contenttype)
     {
 	case 1:
