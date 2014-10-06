@@ -13,7 +13,7 @@ create table contenttype
 
 create table tree
 ( ID int NOT NULL AUTO_INCREMENT, 
-  TagName varchar(20),
+  TagName varchar(80),
   TreeID int,
   ParentID int,
   #leftNode int,
@@ -40,7 +40,8 @@ create table tvshow
 create table actor
 ( ContentID int NOT NULL AUTO_INCREMENT Primary Key,
   ShortDescription varchar(40),
-  Fullname varchar(40),
+  FirstName varchar(40),
+  LastName varchar(40),
   Description varchar(100)
 );
 

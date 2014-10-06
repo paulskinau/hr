@@ -16,10 +16,10 @@ INSERT into tvshow
 
 truncate actor;
 INSERT into actor
- ( FullName, ShortDescription, Description)
+ ( FirstName, LastName, ShortDescription, Description)
  VALUES
- ('Johnny Galecki', 'Johnny Galecki', 'Plays Lenard on the Big Bang Theory'),
- ('Jim Parsons', 'Jim Parsons','Most famous for playing Sheldon on BBT');
+ ('Johnny', 'Galecki', 'Johnny Galecki', 'Plays Lenard on the Big Bang Theory'),
+ ('Jim', 'Parsons', 'Jim Parsons','Most famous for playing Sheldon on BBT');
 
 INSERT INTO tree
  (TagName, TreeID, ParentID, ContentType, ContentID)

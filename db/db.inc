@@ -36,7 +36,9 @@ function getContentTypeTableName($contenttype)
 	  break;
 	case 4:
 	  $tn = "country";
-	  break;
+	  break;	
+	case 5:
+	  throw new Exception('ContentType 5 is a reference type, thus there is no table name!');
      }
   return $tn;
 }
